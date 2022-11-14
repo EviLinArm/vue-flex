@@ -1,0 +1,25 @@
+{
+  "name": "vue-flex-server",
+  "version": "0.0.1",
+  "description": "Vue flex server (P2P video-service)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescipt": "^1.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "webtorrent": "^1.9.2"
+  }
+}
