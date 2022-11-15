@@ -1,4 +1,4 @@
-import { Router } from 'express'
+import 'dotenv/config'
 import * as cheerio from 'cheerio'
 import axios from "axios";
 import {BASE_SEARCH_URL, RUTOR_URL} from "./movies.const";

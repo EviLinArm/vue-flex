@@ -6,6 +6,12 @@ export interface SearchRequest extends Request {
     }
 }
 
+export interface GetMovieFromImdbRequest extends Request {
+    params: {
+        imdbId: string
+    }
+}
+
 export interface CreateMovieRequest extends Request {
     body: Movie
 }
