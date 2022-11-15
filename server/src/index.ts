@@ -5,6 +5,7 @@ import * as path from 'path'
 
 import streamRouter from '../src/modules/stream/stream.controller'
 import contentRouter from '../src/modules/content/content.controller'
+import moviesRouter from '../src/modules/movies/movies.controller'
 
 const app = express()
 app.use(cors())
@@ -14,6 +15,7 @@ app.use(logger('dev'))
 
 app.use('/stream', streamRouter)
 app.use('/content', contentRouter)
+app.use('/movies', moviesRouter)
 
 const PORT = process.env.PORT || 8080
 
