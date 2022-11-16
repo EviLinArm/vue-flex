@@ -1,25 +1,15 @@
-import 'dotenv/config'
-import {stringify} from "qs";
-import axios from "axios";
-import {IMDB_SEARCH_URL} from "./movies.const";
+import { ImdbMovie } from "./movies.interfaces";
+import {ImdbRequests} from "./utils/helper/imdb.helper";
 
-export const searchInImdb = async (query) => {
-    const queryParams = stringify({
-        language: 'ru',
-        api_key: process.env.IMDB_SECRET,
-        query
-    })
-    const { data: { results } } = await axios.get(`${IMDB_SEARCH_URL}/search/movie?${queryParams}`)
-    const [movie] = results
+const {searchMovie, getMovie} = ImdbRequests()
 
+export const searchInImdb = async (query: string): Promise<Partial<ImdbMovie>> => {
+    const { data: { result } } = await searchMovie(query)
+    const [movie] = result
     return movie
 }
 
-export const getMovieFromImdb = async (imdbId: string) => {
-    const queryParams = stringify({
-        language: 'ru',
-        api_key: process.env.IMDB_SECRET,
-    })
-    const result = await axios.get(`${IMDB_SEARCH_URL}/movie?${imdbId}?${queryParams}`)
-    return result.data
+export const getMovieFromImdb = async (imdbId: string): Promise<Partial<ImdbMovie>> => {
+    const {data} = await getMovie(imdbId)
+    return data
 }
